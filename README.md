@@ -2,8 +2,11 @@
 Your project's description...
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.aem.page/
-- Live: https://main--{repo}--{owner}.aem.live/
+- Preview: https://main--abbvie--mkbansal1.aem.page/
+- Live: https://main--abbvie--mkbansal1.aem.live/
+
+## Authoring
+- https://da.live/start?org=mkbansal1&site=abbvie
 
 ## Documentation
 
