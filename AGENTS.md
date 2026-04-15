@@ -24,6 +24,43 @@ The repository provides the basic structure, blocks, and configuration needed to
 - Run linting before committing: `npm run lint`
 - Auto-Fix linting issues: `npm run lint:fix`
 
+## Multi-Site Architecture
+
+This repository hosts 4 AbbVie pharmaceutical websites as a single codebase with brand-specific theming:
+
+| Brand | URL Prefix | Site Type | Content Source |
+|-------|-----------|-----------|----------------|
+| **Qulipta** | `/qulipta/` | Patient (DTC) | DA (da.live) |
+| **Qulipta HCP** | `/quliptahcp/` | Healthcare Professional | DA (da.live) |
+| **Rinvoq** | `/rinvoq/` | Patient (DTC) | DA (da.live) |
+| **Rinvoq HCP** | `/rinvoqhcp/` | Healthcare Professional | DA (da.live) |
+
+- **DA Authoring**: https://da.live/start?org=mkbansal1&site=abbvie
+- **GitHub Repo**: mkbansal1/abbvie
+- Content lives in DA (not git) — the repo only contains presentation code
+
+### Brand Style System
+
+Each brand has its own design tokens and style overrides. The `head.html` script detects the brand from the URL path prefix and dynamically loads the correct stylesheets.
+
+**Loading order:**
+1. `/styles/styles.css` — global base styles (always loaded)
+2. `/styles/<brand>/tokens.css` — CSS custom properties for the brand
+3. `/styles/<brand>/styles.css` — brand-specific style overrides
+
+**Brand design tokens summary:**
+
+| Token | Qulipta | Qulipta HCP | Rinvoq | Rinvoq HCP |
+|-------|---------|-------------|--------|------------|
+| Font | Fira Sans | Fira Sans | Fira Sans | Graphik |
+| Primary color | `#107E9A` teal | `#107E9A` teal | `#374550` charcoal | `#90124A` plum |
+| Accent color | `#F15E22` orange | `#F15E22` orange | `#F15E22` orange | `#FFD100` gold |
+| Page background | `#F0F5F7` | `#F0F5F7` | `#F0F5F7` | `#FFFFFF` |
+| Body text | `#374550` | `#374550` | `#374550` | `#46484A` |
+| Button radius | 8px / 24px | 8px / 24px | 24px pill | 100px pill |
+
+When developing blocks, use CSS custom properties (e.g., `var(--color-primary)`, `var(--button-primary-bg)`) instead of hardcoded colors so blocks automatically adapt to each brand.
+
 ## Project Structure
 
 ```
@@ -34,14 +71,26 @@ The repository provides the basic structure, blocks, and configuration needed to
 ├── styles/          # Global styles and CSS
     ├── styles.css          # Minimal global styling and layout for your website required for LCP
     ├── lazy-styles.css     # Additional global styling and layout for below the fold/post LCP content
-    └── fonts.css           # Font definitions
+    ├── fonts.css           # Font definitions
+    ├── qulipta/            # Qulipta DTC brand styles
+    │   ├── tokens.css        # CSS custom properties
+    │   └── styles.css        # Brand overrides
+    ├── quliptahcp/         # Qulipta HCP brand styles
+    │   ├── tokens.css
+    │   └── styles.css
+    ├── rinvoq/             # Rinvoq DTC brand styles
+    │   ├── tokens.css
+    │   └── styles.css
+    └── rinvoqhcp/          # Rinvoq HCP brand styles
+        ├── tokens.css
+        └── styles.css
 ├── scripts/         # JavaScript libraries and utilities
     ├── aem.js           # Core AEM Library for Edge Delivery page decoration logic (NEVER MODIFY THIS FILE)
     ├── scripts.js       # Global JavaScript utilities, main entry point for page decoration
     └── delayed.js       # Delayed functionality such as martech loading
 ├── fonts/           # Web fonts
 ├── icons/           # SVG icons
-├── head.html        # Global HTML head content
+├── head.html        # Global HTML head content (includes brand style detection)
 └── 404.html         # Custom 404 page
 ```
 
