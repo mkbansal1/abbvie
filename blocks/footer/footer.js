@@ -6,9 +6,16 @@ import { loadFragment } from '../fragment/fragment.js';
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  // load footer as fragment
+  // load footer as fragment — detect brand prefix for brand-specific footer
   const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
+  let footerPath;
+  if (footerMeta) {
+    footerPath = new URL(footerMeta, window.location).pathname;
+  } else {
+    const brands = ['rinvoqhcp', 'rinvoq', 'quliptahcp', 'qulipta'];
+    const brand = brands.find((b) => window.location.pathname.startsWith(`/${b}`));
+    footerPath = brand ? `/${brand}/footer` : '/footer';
+  }
   const fragment = await loadFragment(footerPath);
 
   // decorate footer DOM

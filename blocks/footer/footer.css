@@ -1,20 +1,90 @@
 footer {
-  background-color: var(--light-color);
   font-size: var(--body-font-size-xs);
+  font-family: var(--font-family-body);
+}
+
+footer .footer {
+  background-color: var(--footer-bg, var(--background-color-dark));
+  background-image: var(--footer-bg-gradient, none);
+  color: var(--footer-text-color, var(--text-color-inverted));
 }
 
 footer .footer > div {
   margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  max-width: var(--max-width);
+  padding: 40px var(--section-padding-h) 24px;
+}
+
+footer .footer > div > div {
+  margin: auto;
+  max-width: var(--max-width);
 }
 
 footer .footer p {
   margin: 0;
 }
 
+/* Footer links — horizontal rows */
+footer .footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+footer .footer ul li {
+  font-weight: var(--font-weight-semibold);
+}
+
+footer .footer a:any-link {
+  color: var(--footer-link-color, var(--text-color-inverted));
+  text-decoration: none;
+}
+
+footer .footer a:hover {
+  text-decoration: underline;
+}
+
+/* Footer separator */
+footer .footer hr {
+  border: none;
+  border-top: 2px solid var(--footer-separator-color, rgb(255 255 255 / 30%));
+  margin: 16px 0;
+}
+
+/* Footer headings (for multi-column layout) */
+footer .footer h5 {
+  font-size: var(--body-font-size-xs);
+  font-weight: var(--font-weight-bold);
+  color: var(--footer-heading-color, var(--text-color-muted));
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Copyright and legal text */
+footer .footer .section:last-child p {
+  font-size: var(--body-font-size-xs);
+  line-height: 1.4;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+/* Footer logo */
+footer .footer img {
+  max-width: 130px;
+  height: auto;
+  margin-top: 16px;
+}
+
 @media (width >= 900px) {
   footer .footer > div {
     padding: 40px 32px 24px;
+  }
+
+  footer .footer ul {
+    gap: 8px 32px;
   }
 }

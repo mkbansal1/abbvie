@@ -89,4 +89,11 @@
   --hero-text-color: #fff;
   --hero-overlay-from: rgb(0 0 0 / 50%);
   --hero-overlay-to: transparent;
+
+  /* Footer */
+  --footer-bg: #f3f3f3;
+  --footer-text-color: #25282a;
+  --footer-link-color: #90124a;
+  --footer-heading-color: #666869;
+  --footer-separator-color: #eaeaea;
 }

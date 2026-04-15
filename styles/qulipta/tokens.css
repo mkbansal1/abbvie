@@ -88,4 +88,11 @@
   --hero-text-color: #fff;
   --hero-overlay-from: rgb(0 0 0 / 30%);
   --hero-overlay-to: transparent;
+
+  /* Footer */
+  --footer-bg: transparent;
+  --footer-bg-gradient: linear-gradient(90deg, #374550 0%, #107e9a 100%);
+  --footer-text-color: #fff;
+  --footer-link-color: #fff;
+  --footer-separator-color: rgb(255 255 255 / 30%);
 }
