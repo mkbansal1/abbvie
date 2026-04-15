@@ -26,7 +26,7 @@ The repository provides the basic structure, blocks, and configuration needed to
 
 ## Multi-Site Architecture
 
-This repository hosts 4 AbbVie pharmaceutical websites as a single codebase with brand-specific theming:
+This repository hosts 8 AbbVie pharmaceutical websites across 3 brand families as a single codebase with brand-specific theming:
 
 | Brand | URL Prefix | Site Type | Content Source |
 |-------|-----------|-----------|----------------|
