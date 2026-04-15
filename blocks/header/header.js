@@ -113,9 +113,16 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
-  // load nav as fragment
+  // load nav as fragment — detect brand prefix for brand-specific nav
   const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+  let navPath;
+  if (navMeta) {
+    navPath = new URL(navMeta, window.location).pathname;
+  } else {
+    const brands = ['rinvoqhcp', 'rinvoq', 'quliptahcp', 'qulipta'];
+    const brand = brands.find((b) => window.location.pathname.startsWith(`/${b}`));
+    navPath = brand ? `/${brand}/nav` : '/nav';
+  }
   const fragment = await loadFragment(navPath);
 
   // decorate nav DOM
