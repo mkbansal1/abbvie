@@ -1,0 +1,84 @@
+/* Rinvoq DTC — Design Tokens */
+:root {
+  /* Typography */
+  --font-family-body: "Fira Sans", sans-serif;
+  --font-family-heading: "Fira Sans", sans-serif;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* Body sizes */
+  --body-font-size-m: 16px;
+  --body-font-size-s: 14px;
+  --body-font-size-xs: 12px;
+  --body-line-height: 20px;
+
+  /* Heading sizes */
+  --heading-font-size-xxl: 55px;
+  --heading-font-size-xl: 32px;
+  --heading-font-size-l: 24px;
+  --heading-font-size-m: 22px;
+  --heading-font-size-s: 16px;
+  --heading-font-size-xs: 14px;
+
+  /* Brand colors */
+  --color-primary: #374550;
+  --color-primary-dark: #2d4751;
+  --color-secondary: #f15e22;
+  --color-accent: #071d49;
+  --color-teal: #107e9a;
+  --color-gold: #b38e32;
+
+  /* Background colors */
+  --background-color: #f0f5f7;
+  --background-color-white: #fff;
+  --background-color-dark: #374550;
+  --background-color-darker: #27455c;
+  --background-color-light: #f3f3f3;
+  --background-color-separator: #eaeaea;
+
+  /* Text colors */
+  --text-color: #374550;
+  --text-color-heading: #374550;
+  --text-color-muted: #696969;
+  --text-color-inverted: #fff;
+  --text-color-accent: #f15e22;
+  --text-color-navy: #071d49;
+
+  /* Link colors */
+  --link-color: #071d49;
+  --link-hover-color: #107e9a;
+
+  /* Button colors */
+  --button-primary-bg: #374550;
+  --button-primary-text: #fff;
+  --button-primary-border: #374550;
+  --button-secondary-bg: transparent;
+  --button-secondary-text: #374550;
+  --button-secondary-border: #374550;
+  --button-accent-bg: #f15e22;
+  --button-accent-text: #fff;
+
+  /* Border radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-pill: 24px;
+  --border-radius-round: 30px;
+
+  /* Shadows */
+  --shadow-card: rgb(34 34 34 / 50%) 0 3px 6px 0;
+  --shadow-subtle: rgb(153 153 153) 0 2px 10px -3px;
+
+  /* Layout */
+  --max-width: 1160px;
+  --nav-height: 64px;
+  --section-padding-v: 80px;
+  --section-padding-h: 20px;
+
+  /* Transitions */
+  --transition-fast: 0.2s linear;
+  --transition-default: 0.3s linear;
+}

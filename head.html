@@ -7,3 +7,26 @@
 <script nonce="aem" src="/scripts/aem.js" type="module"></script>
 <script nonce="aem" src="/scripts/scripts.js" type="module"></script>
 <link rel="stylesheet" href="/styles/styles.css"/>
+<script nonce="aem">
+  (function() {
+    var path = window.location.pathname;
+    var brands = ['rinvoqhcp', 'rinvoq', 'quliptahcp', 'qulipta'];
+    var brand = '';
+    for (var i = 0; i < brands.length; i++) {
+      if (path.indexOf('/' + brands[i]) === 0) {
+        brand = brands[i];
+        break;
+      }
+    }
+    if (brand) {
+      var tokens = document.createElement('link');
+      tokens.rel = 'stylesheet';
+      tokens.href = '/styles/' + brand + '/tokens.css';
+      document.head.appendChild(tokens);
+      var styles = document.createElement('link');
+      styles.rel = 'stylesheet';
+      styles.href = '/styles/' + brand + '/styles.css';
+      document.head.appendChild(styles);
+    }
+  })();
+</script>
