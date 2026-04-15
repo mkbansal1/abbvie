@@ -1,4 +1,7 @@
 footer {
+  background-color: var(--footer-bg, var(--background-color-dark));
+  background-image: var(--footer-bg-gradient, none);
+  color: var(--footer-text-color, var(--text-color-inverted));
   font-size: var(--body-font-size-xs);
   font-family: var(--font-family-body);
 }
