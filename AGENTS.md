@@ -41,12 +41,25 @@ This repository hosts 4 AbbVie pharmaceutical websites as a single codebase with
 
 ### Brand Style System
 
-Each brand has its own design tokens and style overrides. The `head.html` script detects the brand from the URL path prefix and dynamically loads the correct stylesheets.
+Each brand has its own design tokens and style overrides. The `head.html` script detects the brand from the URL path prefix and dynamically loads the correct stylesheet via a brand map.
 
-**Loading order:**
-1. `/styles/styles.css` — global base styles (always loaded)
-2. `/styles/<brand>/tokens.css` — CSS custom properties for the brand
-3. `/styles/<brand>/styles.css` — brand-specific style overrides
+**Architecture:**
+- **Qulipta family** shares a base theme (`qulipta-base/`) with per-brand overrides (90%+ code shared)
+- **Rinvoq DTC and HCP** have independent themes (only 28% overlap — different fonts, colors, and scales)
+
+**Loading chain (Qulipta example):**
+```
+head.html → /styles/qulipta-base/qulipta/styles.css
+  ↳ @import tokens.css → /styles/qulipta-base/qulipta/tokens.css
+    ↳ @import ../tokens.css → /styles/qulipta-base/tokens.css (shared)
+  ↳ @import ../styles.css → /styles/qulipta-base/styles.css (shared)
+```
+
+**Loading chain (Rinvoq example):**
+```
+head.html → /styles/rinvoq/styles.css
+  ↳ @import tokens.css → /styles/rinvoq/tokens.css
+```
 
 **Brand design tokens summary:**
 
@@ -72,16 +85,19 @@ When developing blocks, use CSS custom properties (e.g., `var(--color-primary)`,
     ├── styles.css          # Minimal global styling and layout for your website required for LCP
     ├── lazy-styles.css     # Additional global styling and layout for below the fold/post LCP content
     ├── fonts.css           # Font definitions
-    ├── qulipta/            # Qulipta DTC brand styles
-    │   ├── tokens.css        # CSS custom properties
-    │   └── styles.css        # Brand overrides
-    ├── quliptahcp/         # Qulipta HCP brand styles
+    ├── qulipta-base/       # Shared Qulipta theme (DTC + HCP, 90%+ shared)
+    │   ├── tokens.css        # 48 shared CSS custom properties
+    │   ├── styles.css        # Shared style rules (headings, buttons, links, sections)
+    │   ├── qulipta/          # DTC overrides (shadows only)
+    │   │   ├── tokens.css      # @import ../tokens.css + shadow values
+    │   │   └── styles.css      # @import ../styles.css + body font-weight: 300
+    │   └── quliptahcp/       # HCP overrides (nav height, hero, shadows)
+    │       ├── tokens.css      # @import ../tokens.css + 8 overrides
+    │       └── styles.css      # @import ../styles.css + body font-weight: 400 + h4
+    ├── rinvoq/             # Rinvoq DTC (standalone — different design system)
     │   ├── tokens.css
     │   └── styles.css
-    ├── rinvoq/             # Rinvoq DTC brand styles
-    │   ├── tokens.css
-    │   └── styles.css
-    └── rinvoqhcp/          # Rinvoq HCP brand styles
+    └── rinvoqhcp/          # Rinvoq HCP (standalone — Graphik font, plum/gold palette)
         ├── tokens.css
         └── styles.css
 ├── scripts/         # JavaScript libraries and utilities

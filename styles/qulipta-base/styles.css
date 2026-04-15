@@ -1,12 +1,9 @@
-@import url("tokens.css");
-
-/* Qulipta DTC — Brand Styles */
+/* Qulipta Base — Shared Style Rules (DTC + HCP) */
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--font-family-body);
-  font-weight: var(--font-weight-light);
   font-size: var(--body-font-size-m);
   line-height: var(--body-line-height);
 }

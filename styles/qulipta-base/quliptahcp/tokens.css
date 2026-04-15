@@ -1,0 +1,14 @@
+@import url("../tokens.css");
+
+/* Qulipta HCP — Token Overrides */
+:root {
+  --color-gold: #d1ab49;
+  --background-color-footer: #000;
+  --shadow-card: none;
+  --shadow-subtle: none;
+  --nav-height: 56px;
+  --hero-min-height-mobile: 500px;
+  --hero-min-height-tablet: 580px;
+  --hero-min-height-desktop: 650px;
+  --hero-overlay-from: rgb(55 69 80 / 90%);
+}

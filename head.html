@@ -10,19 +10,21 @@
 <script nonce="aem">
   (function() {
     var path = window.location.pathname;
+    var brandMap = {
+      'qulipta': '/styles/qulipta-base/qulipta/styles.css',
+      'quliptahcp': '/styles/qulipta-base/quliptahcp/styles.css',
+      'rinvoq': '/styles/rinvoq/styles.css',
+      'rinvoqhcp': '/styles/rinvoqhcp/styles.css'
+    };
     var brands = ['rinvoqhcp', 'rinvoq', 'quliptahcp', 'qulipta'];
-    var brand = '';
     for (var i = 0; i < brands.length; i++) {
       if (path.indexOf('/' + brands[i]) === 0) {
-        brand = brands[i];
+        var styles = document.createElement('link');
+        styles.rel = 'stylesheet';
+        styles.href = brandMap[brands[i]];
+        document.head.appendChild(styles);
         break;
       }
-    }
-    if (brand) {
-      var styles = document.createElement('link');
-      styles.rel = 'stylesheet';
-      styles.href = '/styles/' + brand + '/styles.css';
-      document.head.appendChild(styles);
     }
   })();
 </script>

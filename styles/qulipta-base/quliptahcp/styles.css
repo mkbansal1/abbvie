@@ -1,0 +1,13 @@
+@import url("tokens.css");
+@import url("../styles.css");
+
+/* Qulipta HCP — Style Overrides */
+
+body {
+  font-weight: var(--font-weight-regular);
+}
+
+h4 {
+  font-size: var(--heading-font-size-xs);
+  color: var(--text-color-muted);
+}

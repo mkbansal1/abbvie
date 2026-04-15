@@ -1,0 +1,8 @@
+@import url("tokens.css");
+@import url("../styles.css");
+
+/* Qulipta DTC — Style Overrides */
+
+body {
+  font-weight: var(--font-weight-light);
+}
