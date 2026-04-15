@@ -1,3 +1,13 @@
+/* ============================================
+   Hero Block — Base / Default Variant
+   Full-width background image with text overlay
+   ============================================ */
+
+.hero-container {
+  max-width: unset;
+  padding: 0;
+}
+
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -5,23 +15,26 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 400px;
+  padding: 60px 24px;
+  overflow: hidden;
+  color: #fff;
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+.hero .hero-image,
+.hero > div:first-child:has(picture) {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .hero picture {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .hero img {
@@ -30,8 +43,361 @@
   height: 100%;
 }
 
+.hero .hero-content,
+.hero > div:last-child:not(:has(picture)) {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 800;
+  line-height: 1.15;
+  text-transform: uppercase;
+  text-shadow: 0 3px 22px rgb(0 0 0 / 40%);
+  margin: 0 0 16px;
+  max-width: 700px;
+}
+
+.hero h1 span {
+  display: block;
+  font-size: 0.75em;
+  font-weight: 700;
+}
+
+.hero p {
+  color: #fff;
+  margin: 0 0 12px;
+  max-width: 600px;
+  font-size: var(--body-font-size-s);
+  line-height: 1.4;
+}
+
+.hero .button-wrapper {
+  margin-top: 20px;
+}
+
+.hero a.button {
+  background-color: #fff;
+  color: #333;
+  border-color: #fff;
+  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: var(--body-font-size-xs);
+}
+
+.hero a.button:hover {
+  background-color: #f0f0f0;
+  border-color: #f0f0f0;
+  text-decoration: none;
+}
+
+@media (width >= 600px) {
+  .hero {
+    min-height: 480px;
+    padding: 80px 32px;
+  }
+}
+
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    min-height: 560px;
+    padding: 100px 48px;
+  }
+
+  .hero h1 {
+    font-size: 54px;
+    letter-spacing: 2px;
+  }
+}
+
+/* ============================================
+   Wave Variant — Qulipta DTC
+   Full-width bg + wave SVG divider at bottom
+   ============================================ */
+
+.hero.wave {
+  padding-bottom: 0;
+  min-height: 450px;
+}
+
+.hero.wave .hero-content {
+  padding-bottom: 100px;
+}
+
+.hero.wave .hero-wave {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  line-height: 0;
+}
+
+.hero.wave .hero-wave picture {
+  position: static;
+  height: auto;
+}
+
+.hero.wave .hero-wave img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (width >= 600px) {
+  .hero.wave {
+    min-height: 520px;
+  }
+}
+
+@media (width >= 900px) {
+  .hero.wave {
+    min-height: 600px;
+  }
+
+  .hero.wave .hero-content {
+    padding-bottom: 140px;
+  }
+}
+
+/* ============================================
+   Gradient Variant — Rinvoq DTC
+   Full-width bg image with gradient overlay
+   ============================================ */
+
+.hero.gradient {
+  min-height: 450px;
+}
+
+.hero.gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgb(0 0 0 / 50%) 0%, rgb(0 0 0 / 20%) 50%, transparent 100%);
+  z-index: 0;
+}
+
+.hero.gradient .hero-content {
+  z-index: 1;
+}
+
+.hero.gradient h1 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  max-width: 550px;
+}
+
+.hero.gradient p {
+  max-width: 500px;
+}
+
+@media (width >= 900px) {
+  .hero.gradient {
+    min-height: 580px;
+  }
+
+  .hero.gradient h1 {
+    font-size: 48px;
+  }
+}
+
+/* ============================================
+   Clinical Variant — Qulipta HCP
+   Dark overlay, clinical data, footnotes
+   ============================================ */
+
+.hero.clinical {
+  min-height: 500px;
+  color: #fff;
+}
+
+.hero.clinical::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgb(55 69 80 / 90%) 0%, rgb(55 69 80 / 70%) 50%, transparent 100%);
+  z-index: 0;
+}
+
+.hero.clinical .hero-content {
+  z-index: 1;
+}
+
+.hero.clinical h1 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  text-shadow: none;
+  margin-bottom: 8px;
+}
+
+.hero.clinical h1 span {
+  font-size: 1.15em;
+  font-weight: 500;
+}
+
+.hero.clinical h2 {
+  color: #fff;
+  font-size: var(--heading-font-size-m);
+  font-weight: 600;
+  font-style: italic;
+  margin: 16px 0 24px;
+  max-width: 600px;
+}
+
+.hero.clinical p {
+  font-size: var(--body-font-size-xs);
+  line-height: 1.35;
+  margin-bottom: 10px;
+  max-width: 650px;
+}
+
+.hero.clinical p strong {
+  font-weight: 700;
+}
+
+.hero.clinical p em {
+  font-style: italic;
+}
+
+.hero.clinical .hero-footnote,
+.hero.clinical .hero-content > small,
+.hero.clinical .hero-content > p:last-child {
+  font-size: 12px;
+  line-height: 1.3;
+  opacity: 0.85;
+  margin-top: 20px;
+}
+
+@media (width >= 900px) {
+  .hero.clinical {
+    min-height: 650px;
+    padding: 80px 48px;
+  }
+
+  .hero.clinical h1 {
+    font-size: 50px;
+    line-height: 1;
+  }
+
+  .hero.clinical h1 span {
+    font-size: 57px;
+  }
+}
+
+/* ============================================
+   Badge Variant — Rinvoq HCP
+   Flex layout: headline left, badge image right
+   No background image, clean layout
+   ============================================ */
+
+.hero.badge {
+  color: var(--text-color, #25282a);
+  background-color: transparent;
+  min-height: auto;
+  padding: 64px 24px 32px;
+  flex-direction: column;
+}
+
+.hero.badge .hero-image {
+  display: none;
+}
+
+.hero.badge .hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.hero.badge h1 {
+  color: var(--text-color, #25282a);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  line-height: 0.9;
+  text-transform: uppercase;
+  text-shadow: none;
+  max-width: 520px;
+}
+
+.hero.badge h1 em {
+  font-style: normal;
+  font-family: serif;
+  font-size: 2.5em;
+  font-weight: 300;
+  color: #ffd100;
+  line-height: 0.85;
+  display: block;
+}
+
+.hero.badge h1 u {
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+
+.hero.badge h1 u::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 8px;
+  background-color: #ffd100;
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+.hero.badge .hero-badge {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+}
+
+.hero.badge .hero-badge picture {
+  position: static;
+}
+
+.hero.badge .hero-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (width >= 900px) {
+  .hero.badge {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 64px 32px 32px;
+    min-height: 340px;
+  }
+
+  .hero.badge .hero-content {
+    flex: 1;
+  }
+
+  .hero.badge h1 {
+    font-size: 40px;
+    line-height: 0.9;
+  }
+
+  .hero.badge h1 em {
+    font-size: 100px;
+  }
+
+  .hero.badge .hero-badge {
+    width: 300px;
+    height: 300px;
+    margin-right: 40px;
   }
 }
