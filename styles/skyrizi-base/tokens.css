@@ -1,0 +1,100 @@
+/* SKYRIZI Base — Shared Design Tokens (DTC + HCP US + HCP PR) */
+:root {
+  /* Typography */
+  --font-family-body: "Univers LT W01_45 Light1475944", roboto, "Helvetica Neue", helvetica, arial, sans-serif;
+  --font-family-heading: "Univers LT W01_67 Bold_1476016", roboto, "Helvetica Neue", helvetica, arial, sans-serif;
+  --font-family-bold: "Univers LT W01_65 Bold1475968", roboto, "Helvetica Neue", helvetica, arial, sans-serif;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* Body sizes */
+  --body-font-size-m: 16px;
+  --body-font-size-s: 14px;
+  --body-font-size-xs: 12px;
+  --body-line-height: normal;
+
+  /* Heading sizes */
+  --heading-font-size-xxl: 42px;
+  --heading-font-size-xl: 28px;
+  --heading-font-size-l: 20px;
+  --heading-font-size-m: 18px;
+  --heading-font-size-s: 16px;
+  --heading-font-size-xs: 14px;
+
+  /* Brand colors */
+  --color-primary: #071d49;
+  --color-primary-hover: #1f448c;
+  --color-secondary: #00a3df;
+  --color-plum: #962e69;
+  --color-navy-medium: #1c3a75;
+  --color-navy-dark: #0b1d3f;
+
+  /* Background colors */
+  --background-color: #fff;
+  --background-color-white: #fff;
+  --background-color-dark: #071d49;
+  --background-color-light: #e8f8fe;
+  --background-color-light-blue: #d1f1fc;
+  --background-color-separator: #e2e4e3;
+
+  /* Text colors */
+  --text-color: #575756;
+  --text-color-heading: #071d49;
+  --text-color-muted: #696969;
+  --text-color-inverted: #fff;
+  --text-color-accent: #00a3df;
+
+  /* Link colors */
+  --link-color: #071d49;
+  --link-hover-color: #1f448c;
+
+  /* Button colors */
+  --button-primary-bg: #962e69;
+  --button-primary-text: #fff;
+  --button-primary-border: #962e69;
+  --button-primary-hover-bg: #7a2456;
+  --button-secondary-bg: #fff;
+  --button-secondary-text: #071d49;
+  --button-secondary-border: #071d49;
+  --button-secondary-hover-bg: #f3f3f3;
+  --button-accent-bg: #00a3df;
+  --button-accent-text: #fff;
+
+  /* Border radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 7px;
+  --border-radius-pill: 30px;
+  --border-radius-round: 30px;
+
+  /* Shadows */
+  --shadow-card: 0 2px 8px 0 rgb(0 0 0 / 10%);
+  --shadow-subtle: 0 1px 4px 0 rgb(0 0 0 / 8%);
+
+  /* Layout */
+  --max-width: 1180px;
+  --nav-height: 130px;
+  --section-padding-v: 60px;
+  --section-padding-h: 20px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-default: 0.3s ease;
+
+  /* Hero */
+  --hero-min-height-mobile: 400px;
+  --hero-min-height-tablet: 480px;
+  --hero-min-height-desktop: 560px;
+  --hero-text-color: #fff;
+  --hero-overlay-from: rgb(7 29 73 / 60%);
+  --hero-overlay-to: transparent;
+
+  /* Footer */
+  --footer-bg: #00a3df;
+  --footer-text-color: #fff;
+  --footer-link-color: rgb(255 255 255 / 80%);
+  --footer-separator-color: rgb(255 255 255 / 30%);
+}

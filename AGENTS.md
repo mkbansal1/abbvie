@@ -34,6 +34,10 @@ This repository hosts 4 AbbVie pharmaceutical websites as a single codebase with
 | **Qulipta HCP** | `/quliptahcp/` | Healthcare Professional | DA (da.live) |
 | **Rinvoq** | `/rinvoq/` | Patient (DTC) | DA (da.live) |
 | **Rinvoq HCP** | `/rinvoqhcp/` | Healthcare Professional | DA (da.live) |
+| **SKYRIZI** | `/skyrizi/` | Patient (DTC) | DA (da.live) |
+| **SKYRIZI HCP** | `/skyrizihcp/` | Healthcare Professional (US) | DA (da.live) |
+| **SKYRIZI HCP PR** | `/skyrizihcppr/` | Healthcare Professional (Puerto Rico) | DA (da.live) |
+| **SKYRIZI Locator** | `/skyrizi-locator/` | HCP Infusion Center Finder | DA (da.live) |
 
 - **DA Authoring**: https://da.live/start?org=mkbansal1&site=abbvie
 - **GitHub Repo**: mkbansal1/abbvie
@@ -46,6 +50,7 @@ Each brand has its own design tokens and style overrides. The `head.html` script
 **Architecture:**
 - **Qulipta family** shares a base theme (`qulipta-base/`) with per-brand overrides (90%+ code shared)
 - **Rinvoq DTC and HCP** have independent themes (only 28% overlap — different fonts, colors, and scales)
+- **SKYRIZI family** shares a base theme (`skyrizi-base/`) with 3 brand overrides (75%+ code shared)
 
 **Loading chain (Qulipta example):**
 ```
@@ -53,6 +58,14 @@ head.html → /styles/qulipta-base/qulipta/styles.css
   ↳ @import tokens.css → /styles/qulipta-base/qulipta/tokens.css
     ↳ @import ../tokens.css → /styles/qulipta-base/tokens.css (shared)
   ↳ @import ../styles.css → /styles/qulipta-base/styles.css (shared)
+```
+
+**Loading chain (SKYRIZI example):**
+```
+head.html → /styles/skyrizi-base/skyrizihcp/styles.css
+  ↳ @import tokens.css → /styles/skyrizi-base/skyrizihcp/tokens.css
+    ↳ @import ../tokens.css → /styles/skyrizi-base/tokens.css (shared)
+  ↳ @import ../styles.css → /styles/skyrizi-base/styles.css (shared)
 ```
 
 **Loading chain (Rinvoq example):**
@@ -63,14 +76,15 @@ head.html → /styles/rinvoq/styles.css
 
 **Brand design tokens summary:**
 
-| Token | Qulipta | Qulipta HCP | Rinvoq | Rinvoq HCP |
-|-------|---------|-------------|--------|------------|
-| Font | Fira Sans | Fira Sans | Fira Sans | Graphik |
-| Primary color | `#107E9A` teal | `#107E9A` teal | `#374550` charcoal | `#90124A` plum |
-| Accent color | `#F15E22` orange | `#F15E22` orange | `#F15E22` orange | `#FFD100` gold |
-| Page background | `#F0F5F7` | `#F0F5F7` | `#F0F5F7` | `#FFFFFF` |
-| Body text | `#374550` | `#374550` | `#374550` | `#46484A` |
-| Button radius | 8px / 24px | 8px / 24px | 24px pill | 100px pill |
+| Token | Qulipta | Qulipta HCP | Rinvoq | Rinvoq HCP | SKYRIZI | SKYRIZI HCP |
+|-------|---------|-------------|--------|------------|---------|-------------|
+| Font | Fira Sans | Fira Sans | Fira Sans | Graphik | Univers | Univers |
+| Primary | `#107E9A` teal | `#107E9A` teal | `#374550` charcoal | `#90124A` plum | `#071D49` navy | `#071D49` navy |
+| Accent | `#F15E22` orange | `#F15E22` orange | `#F15E22` orange | `#FFD100` gold | `#00A3DF` sky blue | `#00A3DF` sky blue |
+| CTA | `#107E9A` teal | `#107E9A` teal | `#374550` charcoal | `#90124A` plum | `#962E69` plum | `#10A4DE` blue |
+| Page bg | `#F0F5F7` | `#F0F5F7` | `#F0F5F7` | `#FFFFFF` | `#FFFFFF` | `#FFFFFF` |
+| Body text | `#374550` | `#374550` | `#374550` | `#46484A` | `#575756` | `#575756` |
+| Btn radius | 8px / 24px | 8px / 24px | 24px pill | 100px pill | 7px / 30px | 0px / 30px |
 
 When developing blocks, use CSS custom properties (e.g., `var(--color-primary)`, `var(--button-primary-bg)`) instead of hardcoded colors so blocks automatically adapt to each brand.
 
@@ -94,6 +108,18 @@ When developing blocks, use CSS custom properties (e.g., `var(--color-primary)`,
     │   └── quliptahcp/       # HCP overrides (nav height, hero, shadows)
     │       ├── tokens.css      # @import ../tokens.css + 8 overrides
     │       └── styles.css      # @import ../styles.css + body font-weight: 400 + h4
+    ├── skyrizi-base/       # Shared SKYRIZI theme (DTC + HCP US + HCP PR, 75%+ shared)
+    │   ├── tokens.css        # ~50 shared tokens (Univers, navy, sky-blue, plum)
+    │   ├── styles.css        # Shared style rules
+    │   ├── skyrizi/          # DTC overrides (footer sky-blue)
+    │   │   ├── tokens.css
+    │   │   └── styles.css
+    │   ├── skyrizihcp/       # HCP US overrides (navy header/footer, blue CTA)
+    │   │   ├── tokens.css
+    │   │   └── styles.css
+    │   └── skyrizihcppr/     # HCP PR overrides (locale variant, smaller nav)
+    │       ├── tokens.css
+    │       └── styles.css
     ├── rinvoq/             # Rinvoq DTC (standalone — different design system)
     │   ├── tokens.css
     │   └── styles.css

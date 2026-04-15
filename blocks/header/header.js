@@ -119,7 +119,7 @@ export default async function decorate(block) {
   if (navMeta) {
     navPath = new URL(navMeta, window.location).pathname;
   } else {
-    const brands = ['rinvoqhcp', 'rinvoq', 'quliptahcp', 'qulipta'];
+    const brands = ['skyrizi-locator', 'skyrizihcppr', 'skyrizihcp', 'skyrizi', 'rinvoqhcp', 'rinvoq', 'quliptahcp', 'qulipta'];
     const brand = brands.find((b) => window.location.pathname.startsWith(`/${b}`));
     navPath = brand ? `/${brand}/nav` : '/nav';
   }

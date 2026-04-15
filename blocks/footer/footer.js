@@ -12,7 +12,7 @@ export default async function decorate(block) {
   if (footerMeta) {
     footerPath = new URL(footerMeta, window.location).pathname;
   } else {
-    const brands = ['rinvoqhcp', 'rinvoq', 'quliptahcp', 'qulipta'];
+    const brands = ['skyrizi-locator', 'skyrizihcppr', 'skyrizihcp', 'skyrizi', 'rinvoqhcp', 'rinvoq', 'quliptahcp', 'qulipta'];
     const brand = brands.find((b) => window.location.pathname.startsWith(`/${b}`));
     footerPath = brand ? `/${brand}/footer` : '/footer';
   }

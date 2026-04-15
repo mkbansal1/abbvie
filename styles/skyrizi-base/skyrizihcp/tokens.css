@@ -1,0 +1,12 @@
+@import url("../tokens.css");
+
+/* SKYRIZI HCP US — Token Overrides */
+:root {
+  --background-color-dark: #0b1d3f;
+  --button-primary-bg: #10a4de;
+  --button-primary-border: #10a4de;
+  --button-primary-hover-bg: #1f448c;
+  --footer-bg: #071d49;
+  --footer-link-color: #e2e4e3;
+  --footer-separator-color: rgb(255 255 255 / 20%);
+}

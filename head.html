@@ -14,9 +14,16 @@
       'qulipta': '/styles/qulipta-base/qulipta/styles.css',
       'quliptahcp': '/styles/qulipta-base/quliptahcp/styles.css',
       'rinvoq': '/styles/rinvoq/styles.css',
-      'rinvoqhcp': '/styles/rinvoqhcp/styles.css'
+      'rinvoqhcp': '/styles/rinvoqhcp/styles.css',
+      'skyrizi-locator': '/styles/skyrizi-base/skyrizihcp/styles.css',
+      'skyrizihcppr': '/styles/skyrizi-base/skyrizihcppr/styles.css',
+      'skyrizihcp': '/styles/skyrizi-base/skyrizihcp/styles.css',
+      'skyrizi': '/styles/skyrizi-base/skyrizi/styles.css'
     };
-    var brands = ['rinvoqhcp', 'rinvoq', 'quliptahcp', 'qulipta'];
+    var brands = [
+      'skyrizi-locator', 'skyrizihcppr', 'skyrizihcp', 'skyrizi',
+      'rinvoqhcp', 'rinvoq', 'quliptahcp', 'qulipta'
+    ];
     for (var i = 0; i < brands.length; i++) {
       if (path.indexOf('/' + brands[i]) === 0) {
         var styles = document.createElement('link');

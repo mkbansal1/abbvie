@@ -1,0 +1,8 @@
+@import url("../tokens.css");
+
+/* SKYRIZI DTC — Token Overrides */
+:root {
+  --hero-overlay-from: rgb(7 29 73 / 50%);
+  --footer-bg: #00a3df;
+  --footer-link-color: rgb(255 255 255 / 80%);
+}

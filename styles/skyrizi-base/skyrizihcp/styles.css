@@ -1,0 +1,12 @@
+@import url("tokens.css");
+@import url("../styles.css");
+
+/* SKYRIZI HCP US — Style Overrides */
+
+a.button.primary,
+button.button.primary {
+  border-radius: 0;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-medium);
+  padding: 12px 30px;
+}
