@@ -80,4 +80,12 @@
   /* Transitions */
   --transition-fast: 0.2s linear;
   --transition-default: 0.3s linear;
+
+  /* Hero */
+  --hero-min-height-mobile: 450px;
+  --hero-min-height-tablet: 520px;
+  --hero-min-height-desktop: 600px;
+  --hero-text-color: #fff;
+  --hero-overlay-from: rgb(0 0 0 / 30%);
+  --hero-overlay-to: transparent;
 }

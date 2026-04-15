@@ -92,6 +92,14 @@
   --transition-fast: 0.2s linear;
   --transition-default: 0.3s linear;
 
+  /* Hero */
+  --hero-min-height-mobile: auto;
+  --hero-min-height-tablet: auto;
+  --hero-min-height-desktop: 340px;
+  --hero-text-color: var(--text-color-heading);
+  --hero-overlay-from: transparent;
+  --hero-overlay-to: transparent;
+
   /* Semantic */
   --color-success: #068c5a;
   --color-error: #d62a24;
