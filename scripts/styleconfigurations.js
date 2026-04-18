@@ -106,7 +106,7 @@ window.styleConfiguration = {
     ],
   },
   text: {
-    "welcome.heading": "Explore what you can do with WKND Adventure Sports",
+    "welcome.heading": "Explore what you can do with WKND Adventure",
     "welcome.subheading":
       "Choose an option or tell us what interests you and we'll point you in the right direction.",
     "input.placeholder": "Tell us what you'd like to do or create",
